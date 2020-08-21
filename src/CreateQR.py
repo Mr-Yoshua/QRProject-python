@@ -1,26 +1,27 @@
 import qrcode
 import json
 
-qr = qrcode.QRCode(
-    version=1,
-    error_correction=qrcode.constants.ERROR_CORRECT_L,
-    box_size=10,
-    border=4,
-)
+
 
 with open('info.json') as file:
     data = json.load(file)
-    for box in data['arrayBoxes']:
-        print('numeroBox:', box['numeroBox'])
-        print('ruta:', box['ruta'])
-        print('nombre paciente:', box['nombrePaciente'])
-        qr.add_data(box['numeroBox'])
-        qr.add_data(',')
-        qr.add_data(box['ruta'])
-        qr.add_data(',')
-        qr.add_data(box['nombrePaciente'])
+    index = 0
+    #for que itera sobre Json
+    for box in data.items():
+        #for que itera sobre Arrayboxes
+        for elemento in box:
+            # Crea una instancia del QR
+            qr = qrcode.QRCode(
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=10,
+                border=4,
+            )
+            # Agrega y crea la información a QR por cada objeto
+            print('numeroBox:', box[1][index])
+            qr.add_data(box[1][index])
+            index+=1
+            qr.make(fit=True)
+            img = qr.make_image(fill_color="black", back_color="white")
+            img.save('QR-Images/qrcode'+str(index)+'.png')
 
-qr.make(fit=True)
-
-img = qr.make_image(fill_color="black", back_color="white")
-img.save('QR-Images/qrcode1.png')

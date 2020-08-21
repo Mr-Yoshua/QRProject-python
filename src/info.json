@@ -2,8 +2,13 @@
     "arrayBoxes":[
         {
             "numeroBox": 1,
-            "ruta": "null",
+            "ruta": "abc,143,gs34,234",
             "nombrePaciente": "josue"
+        },
+        {
+            "numeroBox": 2,
+            "ruta": "abc2",
+            "nombrePaciente": "Diego"
         }
     ]
 }
