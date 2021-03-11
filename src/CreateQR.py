@@ -1,8 +1,7 @@
 import qrcode
 import json
 
-
-
+#recibe datos de json
 with open('info.json') as file:
     data = json.load(file)
     index = 0
@@ -18,7 +17,7 @@ with open('info.json') as file:
                 border=4,
             )
             # Agrega y crea la información a QR por cada objeto
-            print('numeroBox:', box[1][index])
+            print('Info QR:', box[1][index])
             qr.add_data(box[1][index])
             index+=1
             qr.make(fit=True)

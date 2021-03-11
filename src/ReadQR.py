@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from pyzbar.pyzbar import decode
+import json
 
 def ReadQR():
     #img = cv2.imread('QR-Images/qrcode1.png')
@@ -16,13 +17,31 @@ def ReadQR():
         success,img = cap.read()
         for barcode in decode(img):
             qrdata = barcode.data.decode('utf-8')
-            print(qrdata)
+            # dataexample= {"numeroBox": 1, "ruta": "abc,143,gs34,234", "nombrePaciente": "josue"}
+            # print("lectura" + qrdata)
+            dataexample = qrdata.replace("'",'"')
+            # print(dataexample)
+            # print("replace" + dataexample)
+            # datos_pac = json.dumps(dataexample)
+            # print("fooo dump " + str(datos_pac))
+            final_data = json.loads(dataexample)
+            # print("foo loads " + str(final_data))
+            print(final_data["numeroBox"])
+            print(final_data["nombrePaciente"])
+            # print(datos_pac['nombrePaciente'])
+
+
+            
+            # print("NombrePaciente :" + qrdata[])
+
             pts = np.array([barcode.polygon],np.int32)
             pts = pts.reshape((-1,1,2))
             cv2.polylines(img,[pts],True,(0,0,255),5)
-            return 
+            # return 
         cv2.imshow('Result',img)
-        cv2.waitKey(1)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+            cv2.destroyAllWindows()  
         
 ReadQR()
 
