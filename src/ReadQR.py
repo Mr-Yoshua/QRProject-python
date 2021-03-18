@@ -25,18 +25,20 @@ def ReadQR():
             # datos_pac = json.dumps(dataexample)
             # print("fooo dump " + str(datos_pac))
             final_data = json.loads(dataexample)
-            # print("foo loads " + str(final_data))
-            print(final_data["numeroBox"])
-            print(final_data["nombrePaciente"])
-            # print(datos_pac['nombrePaciente'])
+            # print(final_data["numeroBox"])
+            # print(final_data["nombrePaciente"])
 
-
-            
-            # print("NombrePaciente :" + qrdata[])
-
+            nombre_lectura = final_data["nombrePaciente"]
+            box_lectura = final_data["numeroBox"]
+             # print("NombrePaciente :" + qrdata[]
             pts = np.array([barcode.polygon],np.int32)
             pts = pts.reshape((-1,1,2))
             cv2.polylines(img,[pts],True,(0,0,255),5)
+            pts2 = barcode.rect
+            print(pts2[0])
+            cv2.putText(img,('Box : ' + str(box_lectura)),(pts2[0],pts2[1]-60),cv2.FONT_HERSHEY_SIMPLEX,0.9,(57,255,20),2)
+            cv2.putText(img,('Paciente : ' +nombre_lectura),(pts2[0],pts2[1]-20),cv2.FONT_HERSHEY_SIMPLEX,0.9,(57,255,20),2)
+
             # return 
         cv2.imshow('Result',img)
         if cv2.waitKey(1) & 0xFF == ord('q'):
