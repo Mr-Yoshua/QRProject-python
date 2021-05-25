@@ -3,7 +3,7 @@
 
 ```bash
 pip install opencv-python --user
-pip install numpy --user       
+pip install numpy==1.18.5 --user       
 pip install pyzbar --user
 ```
  ## Para creacion de QR 

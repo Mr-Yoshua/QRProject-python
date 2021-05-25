@@ -35,7 +35,7 @@ def ReadQR():
             pts = pts.reshape((-1,1,2))
             cv2.polylines(img,[pts],True,(0,0,255),5)
             pts2 = barcode.rect
-            print(pts2[0])
+            #print(pts2[0])
             cv2.putText(img,('Box : ' + str(box_lectura)),(pts2[0],pts2[1]-60),cv2.FONT_HERSHEY_SIMPLEX,0.9,(57,255,20),2)
             cv2.putText(img,('Paciente : ' +nombre_lectura),(pts2[0],pts2[1]-20),cv2.FONT_HERSHEY_SIMPLEX,0.9,(57,255,20),2)
 
