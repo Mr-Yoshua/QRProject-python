@@ -2,17 +2,17 @@
     "arrayBoxes":[
         {
             "numeroBox": 1,
-            "ruta": "w,w,w,a,a,w,w,w,w,d,d,d,d,w",
+            "ruta": "w,w,w,w,w,w,w,w,w,w,w,w",
             "nombrePaciente": "Josue Lavado"
         },
         {
             "numeroBox": 2,
-            "ruta": "w,w,w,a,a,w,w,w,w,d,d,d,d,w",
+            "ruta": "w,w,w,w,w,w,a,a,a,a,a,a",
             "nombrePaciente": "Diego"
         },
         {
             "numeroBox": 3,
-            "ruta": "w,w,w,a,a,w,w,w,w,d,d,d,d,w",
+            "ruta": "a,a,a,a,a,a,d,d,d,d,d,d,",
             "nombrePaciente": "Juan Vidal"
         }
     ]

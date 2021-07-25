@@ -1,7 +1,8 @@
 import qrcode
 import json
-
+import os
 #recibe datos de json
+
 with open('info.json') as file:
     data = json.load(file)
     index = 0
